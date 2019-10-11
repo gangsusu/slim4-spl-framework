@@ -1,10 +1,10 @@
 # gang-framework Framwork
 
-gang-framework is a PHP framework
+gang-framework is a PHP framework.
 
-This framework is a Is a learning framework.
+This framework is a learning framework.
 
-requires PHP 7.0.0 or newer
+requires PHP 7.0.0 or newer.
 
 As you know, laravel is an excellent framework.
  
