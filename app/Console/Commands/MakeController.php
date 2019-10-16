@@ -22,6 +22,6 @@ class MakeController extends Base
     {
 //        $class = ucfirst(str_ireplace('controller', '', '$class')).'Controller';
 //        $this->make('Http/Controllers', $this->msg);
-        $output->writeln("<comment>" . '开发中……' . "</comment>");
+        $output->writeln('<comment>'.'开发中……'.'</comment>');
     }
 }

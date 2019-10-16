@@ -10,12 +10,13 @@ class UpdateTaskRequest extends BaseRequest
     {
         $rules = [
             'title' => 'required|string|min:2|max:8',
-            'taskId' => 'required|int'
+            'taskId' => 'required|int',
         ];
         $customAttributes = [
             'title' => 'required|string|min:2|max:8',
-            'taskId' => 'taskId'
+            'taskId' => 'taskId',
         ];
+
         return parent::validate($rules, $customAttributes, $data);
     }
 }

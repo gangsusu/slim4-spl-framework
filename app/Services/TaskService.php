@@ -25,28 +25,31 @@ class TaskService
         if (!$exists) {
             return '请选择正确的projectId';
         }
+
         return Task::insertGetId([
             'title' => $data['title'],
             'project_id' => $data['projectId'],
-            'completed' => TaskEnum::un_completed
+            'completed' => TaskEnum::un_completed,
         ]);
     }
 
     public function delTask($data)
     {
         $task = Task::find($data['taskId']);
-        if ($task->completed == TaskEnum::un_completed) {
+        if (TaskEnum::un_completed === $task->completed) {
             return '该task还未完成，不可删除';
         }
+
         return Task::where('id', $data['taskId'])->delete();
     }
 
     public function updateTask($data)
     {
         $task = Task::find($data['taskId']);
-        if ($task && $task->completed == TaskEnum::completed) {
+        if ($task && TaskEnum::completed === $task->completed) {
             return '该task已经完成，不可修改';
         }
+
         return Task::where('id', $data['taskId'])->update(['title' => $data['title']]);
     }
 }

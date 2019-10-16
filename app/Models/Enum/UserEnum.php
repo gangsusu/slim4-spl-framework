@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\Enum;
+
 class UserEnum
 {
     const deleted = -1;

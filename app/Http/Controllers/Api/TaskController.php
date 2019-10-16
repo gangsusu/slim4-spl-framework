@@ -13,12 +13,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class TaskController extends Controller
 {
     /**
-     * 查看所有的T任务列表
-     *
+     * 查看所有的T任务列表.
      */
     public function show(Request $request, Response $response)
     {
-        $tasks = (New TaskService())->allTask();
+        $tasks = (new TaskService())->allTask();
+
         return return_success($response, 'success', $tasks);
     }
 
@@ -28,7 +28,8 @@ class TaskController extends Controller
     public function getTasksByUser(Request $request, Response $response)
     {
         $data = $request->getParams();
-        $tasks = (New TaskService())->getTasksByUser($data['userId']);
+        $tasks = (new TaskService())->getTasksByUser($data['userId']);
+
         return return_success($response, 'success', $tasks);
     }
 
@@ -36,11 +37,12 @@ class TaskController extends Controller
     {
         $data = $request->getParams();
         $res = $valida = AddTaskRequest::check($data);
-        if ($valida == 'ok') {
-            $res = (New TaskService())->addTask($data);
+        if ('ok' === $valida) {
+            $res = (new TaskService())->addTask($data);
         } else {
             return return_failed($response, 'failed', $res);
         }
+
         return return_success($response, 'success', ['id' => $res]);
     }
 
@@ -48,11 +50,12 @@ class TaskController extends Controller
     {
         $data = $request->getParams();
         $res = $valida = DelTaskRequest::check($data);
-        if ($valida == 'ok') {
-            $res = (New TaskService())->delTask($data);
+        if ('ok' === $valida) {
+            $res = (new TaskService())->delTask($data);
         } else {
             return return_failed($response, 'failed', $res);
         }
+
         return return_success($response, 'success', ['id' => $res]);
     }
 
@@ -60,11 +63,12 @@ class TaskController extends Controller
     {
         $data = $request->getParams();
         $res = $valida = UpdateTaskRequest::check($data);
-        if ($valida == 'ok') {
-            $res = (New TaskService())->updateTask($data);
+        if ('ok' === $valida) {
+            $res = (new TaskService())->updateTask($data);
         } else {
             return return_failed($response, 'failed', $res);
         }
+
         return return_success($response, 'success', ['id' => $res]);
     }
 }

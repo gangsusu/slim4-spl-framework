@@ -11,6 +11,7 @@ class UserService
     {
         $user = User::where('name', $request['name'])->first()->toArray();
         $user['status_desc'] = UserEnum::getStatusName($user['status']);
+
         return $user;
     }
 }

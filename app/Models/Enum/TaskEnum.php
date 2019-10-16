@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\Enum;
+
 class TaskEnum
 {
     const completed = 1;

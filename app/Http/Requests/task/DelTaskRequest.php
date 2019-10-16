@@ -9,11 +9,12 @@ class DelTaskRequest extends BaseRequest
     public static function check($data)
     {
         $rules = [
-            'taskId' => 'required|int'
+            'taskId' => 'required|int',
         ];
         $customAttributes = [
-            'taskId' => 'taskId'
+            'taskId' => 'taskId',
         ];
+
         return parent::validate($rules, $customAttributes, $data);
     }
 }

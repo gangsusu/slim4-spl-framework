@@ -1,7 +1,7 @@
 <?php
 
-use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Facades\Route;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 Route::post('/api/service', function (Request $request) {
     $server = new \App\Services\SrvService();
@@ -12,7 +12,6 @@ Route::post('/api/service1', function (Request $request) {
     $server = new \App\Services\DemoService();
     $server->init();
 });
-
 
 Route::get('/tasks', '\App\Http\Controllers\Api\TaskController:show');
 Route::get('/tasks/getTasksByUser', '\App\Http\Controllers\Api\TaskController:getTasksByUser');

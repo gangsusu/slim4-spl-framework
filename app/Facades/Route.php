@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Facades;
+
 class Route extends Facade
 {
     public static function self()

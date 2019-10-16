@@ -15,6 +15,6 @@ class DemoService
 
     public function demo2($request)
     {
-        return 'hello' . $request['0'];
+        return 'hello'.$request['0'];
     }
 }

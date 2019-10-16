@@ -4,9 +4,9 @@ namespace App\Models;
 
 class Task extends BaseModel
 {
+    public $timestamps = false;
     protected $table = 'tasks';
     protected $primaryKey = 'id';
-    public $timestamps = false;
 
     public function project()
     {

@@ -7,7 +7,7 @@ $container = new \Illuminate\Container\Container();
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
-$capsule = new \Illuminate\Database\Capsule\Manager;
+$capsule = new \Illuminate\Database\Capsule\Manager();
 $capsule->addConnection($config['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
@@ -19,13 +19,14 @@ $callableResolver = $app->getCallableResolver();
 $responseFactory = $app->getResponseFactory();
 $errorHandler = new \App\Handlers\HttpErrorHandler($callableResolver, $responseFactory);
 
-if ($config['settings']['debug'] == false) {
+if (false === $config['settings']['debug']) {
     $errorMiddleware = $app->addErrorMiddleware(true, true, true);
     $errorMiddleware->setDefaultErrorHandler($errorHandler);
 }
 $container->bind('config', function () {
-    $config = New Config();
-    $config->loadConfigFiles(__DIR__ . '/../config');
+    $config = new Config();
+    $config->loadConfigFiles(__DIR__.'/../config');
+
     return $config;
 });
 
@@ -36,6 +37,7 @@ $container->bind('db', function () use ($capsule) {
 $container->bind('logger', function () {
     $logger = new \Monolog\Logger(Config('logger.logger.name'));
     $logger->pushHandler(new \Monolog\Handler\StreamHandler(Config('logger.logger.path')));
+
     return $logger;
 });
 

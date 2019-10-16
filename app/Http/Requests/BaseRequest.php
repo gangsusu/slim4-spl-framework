@@ -10,8 +10,8 @@ class BaseRequest
     {
         if (!Validator::validators($rules, $data, [], $customAttributes)) {
             return Validator::getMessage()->toArray();
-        } else {
-            return 'ok';
         }
+
+        return 'ok';
     }
 }

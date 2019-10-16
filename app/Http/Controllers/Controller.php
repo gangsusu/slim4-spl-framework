@@ -12,5 +12,4 @@ abstract class Controller
     {
         $this->ci = $ci;
     }
-
 }
