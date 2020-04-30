@@ -2,6 +2,7 @@
 
 use App\Config;
 use Slim\Factory\AppFactory;
+use SlimFacades\Facade;
 
 $container = new \Illuminate\Container\Container();
 AppFactory::setContainer($container);
@@ -45,4 +46,4 @@ $container->bind('cache', function () {
     return (new \App\Cache(Config('cache')))->init();
 });
 
-\App\Facades\Facade::setFacadeApplication($app);
+Facade::setFacadeApplication($app);
